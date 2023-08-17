@@ -1,0 +1,26 @@
+
+body {
+  background-color: #faf8f1;
+  color: #0a1520;
+  font-family: 'Poppins', sans-serif;
+}
+
+#poster {
+  display: flex;
+  justify-content: center;
+
+  margin: 0;
+  height: 95%;
+  width: 95%;
+  position: absolute;
+  left: 2.5%;
+  top: 2.5%;
+  border: #1d1e22 solid 2px;
+  background: #1d1e22;
+}
+
+#poster img {
+  display: flex;
+  height: 100%;
+  width: auto;
+}
