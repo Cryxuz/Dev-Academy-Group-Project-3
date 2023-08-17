@@ -1,14 +1,12 @@
 import { Outlet } from 'react-router-dom'
-import Nav from './Nav'
-import Header from './Header'
-import Footer from './Footer'
+import NavBar from './NavBar.tsx'
+import Footer from './Footer.tsx'
 
 function App() {
   return (
     <div>
-      <Header />
-      <div className="main">
-        <Nav />
+      <NavBar />
+      <div>
         <Outlet />
       </div>
       <Footer />
