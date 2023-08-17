@@ -6,5 +6,6 @@ function App() {
     </div>
   )
 }
+// Header, Footer, Nav
 
 export default App
