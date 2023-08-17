@@ -7,7 +7,7 @@ import {
 import App from './components/App'
 import Home from './components/Home'
 import OurPeople from './components/OurPeople'
-import SignUp from './components/SignUp'
+import SignUp from './components/Signup'
 
 
 const router = createBrowserRouter(
