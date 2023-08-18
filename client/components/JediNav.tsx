@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 // jedi nav no link
 export default function JediNav({ OpenPopup }) {
   const handleButtonClick = () => {
@@ -10,18 +12,18 @@ export default function JediNav({ OpenPopup }) {
         <nav className="jedi-nav">
           <img
             className="nav-img"
-            src="../../public/images/Rebel.png"
+            src="../../Public/Images/Rebel.png"
             alt="rebel logo"
           />
-          <a className="nav-a" onClick={handleButtonClick} href="#">
+          <Link className="nav-a" onClick={handleButtonClick} to="#">
             Rebels
-          </a>{' '}
-          <a className="nav-a" onClick={handleButtonClick} href="#">
+          </Link>
+          <Link className="nav-a" onClick={handleButtonClick} to="#">
             Report Sith Activity
-          </a>{' '}
-          <a className="nav-a" onClick={handleButtonClick} href="#">
+          </Link>
+          <Link className="nav-a" onClick={handleButtonClick} to="#">
             Sign up
-          </a>
+          </Link>
         </nav>
       </div>
     </div>

@@ -16,7 +16,6 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="empire/ourPeople" element={<OurPeople />} />
       <Route path="empire/signUp" element={<Signup />} />
-      {/* <Route path="republic/ourPeople/" element={<TeamList />} /> */}
     </Route>
   )
 )
