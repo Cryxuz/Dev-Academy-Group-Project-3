@@ -1,16 +1,26 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import NavBar from './NavBar.tsx'
 import Footer from './Footer.tsx'
 
 function App() {
+  const location = useLocation()
+  const empirePage = location.pathname !== '/'
   return (
-    <div>
-      <NavBar />
-      <div>
-        <Outlet />
-      </div>
-      <Footer />
-    </div>
+    <>
+      {empirePage ? (
+        <div>
+          <NavBar />
+          <div>
+            <Outlet />
+          </div>
+          <Footer />
+        </div>
+      ) : (
+        <div>
+          <Outlet />
+        </div>
+      )}
+    </>
   )
 }
 // Header, Footer, Nav
