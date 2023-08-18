@@ -10,7 +10,7 @@ export default function Popup({ showAd }) {
   return (
     <div>
       {showAd && (
-        <a href="/OurPeople">
+        <a href="empire/ourPeople">
           <div id="poster" className="popup">
             <img
               src="/../public/images/popup.jpeg"

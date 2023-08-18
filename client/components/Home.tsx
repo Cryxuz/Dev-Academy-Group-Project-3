@@ -1,25 +1,30 @@
 // ?Propaganda about the Empire, image
 import Popup from './Popup'
 import { useState, useEffect } from 'react'
+import JediNav from './JediNav.tsx'
+import Jedi from './Jedi.tsx'
 import TeamList from './TeamList'
 import blurbs from '../../data/blurbs'
 import teamMembers from '../../data/teamMembers' //suggestions by BigD
 
-// export default function Home() {
-//   const [showAd, setShowAd] = useState(false)
+export default function Home() {
+  const [showAd, setShowAd] = useState(false)
 
-//   const handleOpenAd = () => {
-//     setShowAd(true)
-//   }
-//   return (
-//     <div>
-//       This is home page
-//       <button className="open-button" onClick={handleOpenAd}>
-//         Open Ad
-//       </button>
-//       <TeamList blurb={} teamMembers={} />
-//       <TeamList />
-//       <Popup showAd={showAd} />
-//     </div>
-//   )
-// }
+  const handleOpenAd = () => {
+    setShowAd(true)
+  }
+
+  return (
+    <div className="stars">
+      <JediNav OpenPopup={handleOpenAd} />
+      <Jedi OpenPopup={handleOpenAd} />
+
+      <Popup showAd={showAd} />
+    </div>
+  )
+}
+
+// navbar -> report empire activity, signup btn,
+// imgs jedi/allies
+// background img
+// signup btn
