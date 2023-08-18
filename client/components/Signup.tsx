@@ -1,7 +1,42 @@
 // form to sign up as a recruit
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate, useOutletContext } from 'react-router-dom'
+import teamMember from '../../models'
+// import empireMembersData from '../../data/empireMembers'
+
+// const { empireMembers, stormTroopers } = useOutletContext<dataContext>()
+
+interface dataContext {
+  empireMembers: teamMember[]
+  setEmpireMembers: (
+    teamMembers: teamMember[]
+  ) => React.Dispatch<React.SetStateAction<string>>
+}
 
 export default function Signup() {
+  const [person, setPerson] = useState('')
+  const navigate = useNavigate()
+
+  const { empireMembers, setEmpireMembers } = useOutletContext<dataContext>()
+
+  const newRecruit = {
+    id: 5,
+    name: person,
+    role: 'Sith Prodigy',
+    picture:
+      'https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1417616513258-OOC8IJT9XS6G8MKPN63Y/sith-lord-fan-art-for-star-wars-the-force-awakens',
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setEmpireMembers([...empireMembers, newRecruit])
+    setPerson('')
+    navigate('/empire/ourPeople')
+  }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPerson(event.target.value)
+  }
+
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       <br />
@@ -22,7 +57,7 @@ export default function Signup() {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Welcome to a brighter future
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -36,6 +71,8 @@ export default function Signup() {
                   id="name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Anakin SkyWalker"
+                  value={person}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -227,7 +264,7 @@ export default function Signup() {
                 type="submit"
                 className="w-full text-primary-600 bg-gray-300 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
-                Create an account
+                Complete Onboarding
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already started an application?

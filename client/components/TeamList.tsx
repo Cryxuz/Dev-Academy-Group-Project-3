@@ -1,8 +1,22 @@
 import TeamMember from './TeamMember.tsx'
 
+interface blurb {
+  id: string
+  title: string
+  description: string
+}
+
 interface Props {
-  teamMembers: []
-  blurb: object
+  teamMembers: teamMember[]
+  blurb: blurb
+}
+
+interface teamMember {
+  id: number
+  name: string
+  role: string
+  picture: string
+  url?: string
 }
 
 export default function TeamList({ teamMembers, blurb }: Props) {
@@ -14,11 +28,10 @@ export default function TeamList({ teamMembers, blurb }: Props) {
             {blurb.title}
           </h2>
           <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            {blurb.blurb}
+            {blurb.description}
           </p>
         </div>
         <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {/*Use array to loop through data*/}
           {teamMembers.map((x) => {
             return (
               <TeamMember
