@@ -1,4 +1,4 @@
-const empireData = [
+const empireMembers = [
   {
     id: 1,
     name: 'Darth Vadar',
@@ -31,4 +31,4 @@ const empireData = [
   },
 ]
 
-export default empireData
+export default empireMembers
