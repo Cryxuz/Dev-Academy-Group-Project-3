@@ -1,19 +1,11 @@
-import { useState, useEffect } from 'react'
-
 export default function Popup({ showAd }) {
-  // const [showAd, setShowAd] = useState(false)
-
-  // const handleOpenAd = () => {
-  //   setShowAd(true)
-  // }
-
   return (
     <div>
       {showAd && (
         <a href="empire/ourPeople">
           <div id="poster" className="popup">
             <img
-              src="/../public/images/popup.jpeg"
+              src="/../Public/Images/popup.jpeg"
               alt="recruiter poster"
             ></img>
           </div>
@@ -21,10 +13,4 @@ export default function Popup({ showAd }) {
       )}
     </div>
   )
-}
-
-{
-  /* <button className="open-button" onClick={handleOpenAd}>
-Open Ad
-</button> */
 }

@@ -1,10 +1,6 @@
-// form to sign up as a recruit
 import { useState } from 'react'
 import { Link, useNavigate, useOutletContext } from 'react-router-dom'
 import teamMember from '../../models'
-// import empireMembersData from '../../data/empireMembers'
-
-// const { empireMembers, stormTroopers } = useOutletContext<dataContext>()
 
 interface dataContext {
   empireMembers: teamMember[]
@@ -15,6 +11,7 @@ interface dataContext {
 
 export default function Signup() {
   const [person, setPerson] = useState('')
+  const [photo, setPhoto] = useState('')
   const navigate = useNavigate()
 
   const { empireMembers, setEmpireMembers } = useOutletContext<dataContext>()
@@ -23,18 +20,30 @@ export default function Signup() {
     id: 5,
     name: person,
     role: 'Sith Prodigy',
-    picture:
-      'https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1417616513258-OOC8IJT9XS6G8MKPN63Y/sith-lord-fan-art-for-star-wars-the-force-awakens',
+    picture: photo,
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    if (photo === '') {
+      setPhoto(
+        'https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1417616513258-OOC8IJT9XS6G8MKPN63Y/sith-lord-fan-art-for-star-wars-the-force-awakens'
+      )
+    }
+
     event.preventDefault()
     setEmpireMembers([...empireMembers, newRecruit])
     setPerson('')
+    setPhoto(
+      'https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1417616513258-OOC8IJT9XS6G8MKPN63Y/sith-lord-fan-art-for-star-wars-the-force-awakens'
+    )
     navigate('/empire/ourPeople')
   }
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPerson(event.target.value)
+    if (event.target.name === 'name') setPerson(event.target.value)
+    console.log(person)
+    if (event.target.name === 'photo') setPhoto(event.target.value)
+
+    console.log(photo)
   }
 
   return (
@@ -231,6 +240,25 @@ export default function Signup() {
                     </div>
                   </li>
                 </ul>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="photo"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Profile Pic URL
+                </label>
+                <input
+                  type="photo"
+                  name="photo"
+                  id="photo"
+                  placeholder="URL"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  value={photo}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="flex items-start">

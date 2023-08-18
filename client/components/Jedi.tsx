@@ -1,5 +1,7 @@
 // imgs of jedis
 
+import { Link } from 'react-router-dom'
+
 interface Jedi {
   name: string
   image: string
@@ -8,19 +10,19 @@ interface Jedi {
 const jedi: Jedi[] = [
   {
     name: 'Luke Skywalker',
-    image: '../../public/images/Luke.png',
+    image: '../../Public/Images/Luke.png',
   },
   {
     name: 'Mace Windu',
-    image: '../../public/images/Mace.png',
+    image: '../../Public/Images/Mace.png',
   },
   {
     name: 'Yoda',
-    image: '../../public/images/yoda.jpeg',
+    image: '../../Public/Images/yoda.jpeg',
   },
   {
     name: 'ObiWan Kenobi',
-    image: '../../public/images/Kenobi.png',
+    image: '../../Public/Images/Kenobi.png',
   },
 ]
 
@@ -32,11 +34,11 @@ export default function Jedi({ OpenPopup }) {
     <div className="jedi-profiles">
       {jedi.map((item, index) => (
         <div key={index}>
-          <a onClick={handleButtonClick} href="#">
+          <Link onClick={handleButtonClick} to="#">
             <img className="jedi-pic" src={item.image} alt={item.name} />
 
             <h3>{item.name}</h3>
-          </a>
+          </Link>
         </div>
       ))}
     </div>

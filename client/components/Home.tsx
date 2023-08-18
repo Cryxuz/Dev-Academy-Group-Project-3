@@ -1,11 +1,8 @@
 // ?Propaganda about the Empire, image
 import Popup from './Popup'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import JediNav from './JediNav.tsx'
 import Jedi from './Jedi.tsx'
-import TeamList from './TeamList'
-import blurbs from '../../data/blurbs'
-import teamMembers from '../../data/teamMembers' //suggestions by BigD
 
 export default function Home() {
   const [showAd, setShowAd] = useState(false)
