@@ -10,7 +10,7 @@ import Signup from './components/Signup.tsx'
 
 import OurPeople from './components/OurPeople.tsx'
 
-const router = createBrowserRouter(
+export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
